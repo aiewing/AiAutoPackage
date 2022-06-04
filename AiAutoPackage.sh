@@ -13,7 +13,7 @@ package_environment=Debug
 # ⚠️打包导出类型(根据 plist 文件决定)，默认 AdHocExportOptions.plist
 export_plist_name="AdHocExportOptions.plist"
 # ⚠️更新日志
-update_log="打包测试"
+update_log=""
 # ⚠️项目全路径(文件绝对路径，如"/Users/xxx/BaseProject/BaseProject.xcworkspace")
 project_all_path="/Users/aiewing/Desktop/BFGit/xique-ios/TaTa.xcworkspace"
 
@@ -49,6 +49,11 @@ project_all_path=${project_all_path%/*}
 if [ "${pro_suffix}" != "xcworkspace" ] && [ "${pro_suffix}" != "xcodeproj" ]; then
     echo "${CWARNING}⚠️项目名称配置错误，请正确配置project_full_name，如：BaseProject.xcworkspace 或 BaseProject.xcodeproj类型${CEND}"
     exit
+fi
+
+# 判断日志是否为空
+if [ -z "$update_log" ]; then
+    update_log="iOS ${package_environment} AdHoc $(date "+%Y-%m-%d %H:%M:%S") 测试包"
 fi
 
 #while :; do
