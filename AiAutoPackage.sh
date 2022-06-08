@@ -11,7 +11,7 @@
 # ⚠️打包环境，默认 Release 版，也可配置为 Debug
 package_environment=Debug
 # ⚠️打包导出类型(根据 plist 文件决定)，默认 AdHocExportOptions.plist
-export_plist_name="AdHocExportOptions.plist"
+export_plist_name="DevelopmentExportOptions.plist"
 # ⚠️更新日志
 update_log=""
 # ⚠️项目全路径(文件绝对路径，如"/Users/xxx/BaseProject/BaseProject.xcworkspace")
@@ -53,7 +53,7 @@ fi
 
 # 判断日志是否为空
 if [ -z "$update_log" ]; then
-    update_log="iOS ${package_environment} AdHoc $(date "+%Y-%m-%d %H:%M:%S") 测试包"
+    update_log="iOS ${package_environment} Development $(date "+%Y-%m-%d %H:%M:%S") 测试包"
 fi
 
 #while :; do
@@ -272,4 +272,5 @@ else
     # 不需要上传
     echo "===== 不需要上传 ====="
 fi
+
 
